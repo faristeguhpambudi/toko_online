@@ -29,6 +29,13 @@ class Data_barang extends CI_Controller{
 			$this->load->view('templates_admin/footer', $data);
 		} else {
 			$this->Barang_model->tambahBarang();
+			//KIRIM FLASHDATA
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Data Barang berhasil ditambah!</strong> 
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>');
 			redirect("data_barang");
 		}
 	}
@@ -51,6 +58,13 @@ class Data_barang extends CI_Controller{
 			$this->load->view('templates_admin/footer', $data);
 		} else {
 			$this->Barang_model->edit_Barang();
+			//KIRIM FLASHDATA
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Data Barang berhasil diubah!</strong> 
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>');
 			redirect("data_barang");
 		}
 	}
@@ -58,7 +72,24 @@ class Data_barang extends CI_Controller{
 	public function hapus($id_barang)
 	{
 		$this->Barang_model->hapus_Barang($id_barang);
+		//KIRIM FLASHDATA
+		$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+		<strong>Data Barang berhasil dihapus!</strong> 
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+		</button>
+		</div>');
 		redirect("data_barang");
 	}
+
+	public function detailBarang($id_barang)
+	{
+		$data["barang"] = $this->Barang_model->detailBarang($id_barang);
+		$this->load->view('templates_admin/header', $data);
+		$this->load->view('templates_admin/sidebar', $data);
+		$this->load->view('templates_admin/topbar', $data);
+		$this->load->view('admin/detail_barang', $data);
+		$this->load->view('templates_admin/footer', $data);
+	} 
 }
 ?>

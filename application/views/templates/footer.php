@@ -2,7 +2,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Faris Teguh Pambudi 2020</span>
+            <span><b>Copyright &copy; Faris Teguh Pambudi 2021</b></span>
           </div>
         </div>
       </footer>

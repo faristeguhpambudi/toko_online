@@ -4,7 +4,7 @@
 
 		</div>
 		<div class="col-md-8">
-		<button class="btn btn-success">
+		<button class="btn btn-danger">
 				<?php 
 					$grand_total = 0;
 					if($keranjang = $this->cart->contents()){
@@ -18,18 +18,21 @@
 			</button>
 			<br><br>
 			<h3>input alamat pengiriman dan pembayaran</h3>
-			<form action="<?= base_url("dashboard/prosesPesanan"); ?>" method="post">
+			<form action="<?= base_url("dashboard/pembayaran"); ?>" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="alamat">Nama Lengkap</label>
-				<input type="text" class="form-control" id="nama" name="nama">
+				<input type="text" class="form-control" id="nama" name="nama" placeholder="masukkan nama anda..">
+				<?= form_error('nama','<div class="small text-danger">','</div>'); ?>
 			</div>
 			<div class="form-group">
 				<label for="alamat">Alamat Lengkap</label>
-				<input type="text" class="form-control" id="alamat" name="alamat">
+				<input type="text" class="form-control" id="alamat" name="alamat" placeholder="masukkan alamat pengiriman..">
+				<?= form_error('alamat','<div class="small text-danger">','</div>'); ?>
 			</div>
 			<div class="form-group">
 				<label for="telp">No. Telepon</label>
-				<input type="text" class="form-control" id="telp" name="telp">
+				<input type="text" class="form-control" id="telp" name="telp" placeholder="masukkan nomor telpon anda..">
+				<?= form_error('telp','<div class="small text-danger">','</div>'); ?>
 			</div>
 			<div class="form-group">
 				<label for="pengiriman">Jasa Pengiriman</label>
@@ -50,7 +53,11 @@
 					<option>BNI - XXXXXXXXXXXXXXXXX</option>
 				</select>
 			</div>
-			<button type="sumit" class="btn btn-primary">Checkout</button>
+			<div class="form-group">
+				<label for="bukti_bayar">Bukti Bayar/Bukti Transfer</label>
+				<input type="file" class="form-control" id="bukti_bayar" name="bukti_bayar">
+			</div>
+			<button type="submit" class="btn btn-primary">Checkout</button>
 			</form>
 			<?php }
 				else {

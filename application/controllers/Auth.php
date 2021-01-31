@@ -20,6 +20,13 @@ class Auth extends CI_Controller{
 	{
 		$array_items = array('username', 'role_id');
 		$this->session->unset_userdata($array_items);
+		//KIRIM FLASHDATA
+		$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+		<strong>Anda Baru saja Logout!</strong> 
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+		</button>
+		</div>');
 		redirect("Auth/login");
 	}
 }

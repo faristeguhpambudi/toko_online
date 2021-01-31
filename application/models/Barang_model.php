@@ -14,7 +14,7 @@ class Barang_model extends CI_Model{
 		$harga = $this->input->post('harga');
 		$stok = $this->input->post('stok');
 		$gambar = $_FILES["gambar"]["name"];
-
+ 
 		if($gambar = ""){}else{
 			$config["upload_path"] = "./assets/uploads";
 			$config["allowed_types"] = "jpg|jpeg|png|gif";

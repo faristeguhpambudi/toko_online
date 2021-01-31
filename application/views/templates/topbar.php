@@ -12,23 +12,11 @@
 	  <i class="fa fa-bars"></i>
 	</button>
 
-	<!-- Topbar Search -->
-	<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-	  <div class="input-group">
-		<input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-		<div class="input-group-append">
-		  <button class="btn btn-primary" type="button">
-			<i class="fas fa-search fa-sm"></i>
-		  </button>
-		</div>
-	  </div>
-	</form>
-
 	<div class="nav-bar">
 		<ul class="nav navbar-nav navbar-right">
 			<li>
 				<?php $itemKeranjang = $this->cart->total_items(); ?>
-				<a href="<?= base_url() . "dashboard/detailKeranjang/" . $itemKeranjang; ?>" class="btn btn-success">Keranjang Belanja Anda : <?= $itemKeranjang; ?> Item</a>
+				<a href="<?= base_url() . "dashboard/detailKeranjang/" . $itemKeranjang; ?>" class="btn btn-success"><i class="fas fa-fw fa-shopping-cart mr-2"></i><b>Keranjang Belanja Anda : <?= $itemKeranjang; ?> Item</b></a>
 			</li>
 		</ul>
 	</div>
@@ -36,37 +24,17 @@
 	<!-- Topbar Navbar -->
 	<ul class="navbar-nav ml-auto">
 
-	  <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-	  <li class="nav-item dropdown no-arrow d-sm-none">
-		<a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		  <i class="fas fa-search fa-fw"></i>
-		</a>
-		<!-- Dropdown - Messages -->
-		<div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-		  <form class="form-inline mr-auto w-100 navbar-search">
-			<div class="input-group">
-			  <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-			  <div class="input-group-append">
-				<button class="btn btn-primary" type="button">
-				  <i class="fas fa-search fa-sm"></i>
-				</button>
-			  </div>
-			</div>
-		  </form>
-		</div>
-	  </li>
-
 	  <div class="topbar-divider d-none d-sm-block"></div>
 
-	  <ul class="nav navbar-nav navbar-right">
+	  <ul class="nav navbar-nav navbar-right text-gray-900">
 		  <?php if($this->session->userdata('username')): ?>
-			<li><div>Selamat datang <?= $this->session->userdata('username'); ?></div></li>
-			<li>
-				<a href="<?= base_url("auth/logout"); ?>" class="btn btn-danger">Logout</a>
+			<li class="text-primary"><div><b>Selamat datang <?= $this->session->userdata('username'); ?></b></div></li>
+			<li class="ml-3">
+			<a href="<?= base_url("auth/logout"); ?>" class="btn btn-danger" onclick="return confirm('yakin ingin Logout?');"><i class="fas fa-fw fa-sign-out-alt"></i><b>Logout</b></a>
 			</li>
 			<?php else: ?>
 				<li>
-				<a href="<?= base_url("auth/login"); ?>" class="btn btn-success">Login</a>
+				<a href="<?= base_url("auth/login"); ?>" class="btn btn-success"><i class="fas fa-fw fa-sign-in-alt mr-2"></i><b>Login</b></a>
 			</li>
 			<?php endif; ?>
 	  </ul>
